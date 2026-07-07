@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing de Projeto — Escritório de Arquitetura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Arquitetora" class="header-logo">
+  <p>Conte-nos sobre seus sonhos,<br>vamos transformá-los em espaços!</p>
+</header>
+
+<div class="progress-bar">
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div class="progress-steps">
+    <div class="step-dot active" onclick="scrollToSection(0)"><span class="dot"></span> Identificação</div>
+    <div class="step-dot" onclick="scrollToSection(1)"><span class="dot"></span> Projeto</div>
+    <div class="step-dot" onclick="scrollToSection(2)"><span class="dot"></span> Ambientes</div>
+    <div class="step-dot" onclick="scrollToSection(3)"><span class="dot"></span> Estética</div>
+    <div class="step-dot" onclick="scrollToSection(4)"><span class="dot"></span> Paleta</div>
+    <div class="step-dot" onclick="scrollToSection(5)"><span class="dot"></span> Prioridades</div>
+    <div class="step-dot" onclick="scrollToSection(6)"><span class="dot"></span> Investimento</div>
+  </div>
+</div>
+
+<main>
+  <form id="briefingForm">
+
+    <!-- ── SEÇÃO 1: IDENTIFICAÇÃO ── -->
+    <div class="form-section" data-section="0">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <div class="section-title-wrap">
+          <h2>Identificação</h2>
+          <p>Quem é você e como podemos entrar em contato</p>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>Nome completo <span class="required">*</span></label>
+          <input type="text" name="nome" placeholder="Seu nome" required>
+        </div>
+        <div class="field-group">
+          <label>E-mail <span class="required">*</span></label>
+          <input type="email" name="email" placeholder="seu@email.com" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label>Telefone / WhatsApp <span class="required">*</span></label>
+          <input type="tel" name="telefone" placeholder="(11) 90000-0000" required>
+        </div>
+        <div class="field-group">
+          <label>Cidade</label>
+          <input type="text" name="cidade" placeholder="Cidade, Estado">
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field-group">
+        <label>Como conheceu nosso trabalho?</label>
+        <div class="pills">
+          <div class="pill"><input type="radio" name="origem" id="o1" value="nos_conhecemos"><label for="o1">Já nos conhecemos</label></div>
+          <div class="pill"><input type="radio" name="origem" id="o2" value="indicacao"><label for="o2">Indicação</label></div>
+          <div class="pill"><input type="radio" name="origem" id="o3" value="instagram"><label for="o3">Instagram</label></div>
+          <div class="pill"><input type="radio" name="origem" id="o4" value="google"><label for="o4">Pesquisa Google</label></div>
+          <div class="pill"><input type="radio" name="origem" id="o5" value="outros"><label for="o5">Outros</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SEÇÃO 2: SOBRE O PROJETO ── -->
+    <div class="form-section" data-section="1">
+      <div class="section-header">
+        <div class="section-number">02</div>
+        <div class="section-title-wrap">
+          <h2>Sobre o Projeto</h2>
+          <p>Detalhes do imóvel e tipo de intervenção desejada</p>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>Tipo de imóvel <span class="required">*</span></label>
+          <div class="pills" style="flex-direction: column; gap: 8px;">
+            <div class="pill"><input type="radio" name="tipo_imovel" id="i1" value="terreno"><label for="i1">Terreno</label></div>
+            <div class="pill"><input type="radio" name="tipo_imovel" id="i2" value="casa"><label for="i2">Casa</label></div>
+            <div class="pill"><input type="radio" name="tipo_imovel" id="i3" value="apartamento"><label for="i3">Apartamento</label></div>
+            <div class="pill"><input type="radio" name="tipo_imovel" id="i4" value="comercial"><label for="i4">Comercial</label></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Tipo de projeto <span class="required">*</span></label>
+          <div class="pills" style="flex-direction: column; gap: 8px;">
+            <div class="pill"><input type="radio" name="tipo_projeto" id="p1" value="construcao"><label for="p1">Construção</label></div>
+            <div class="pill"><input type="radio" name="tipo_projeto" id="p2" value="reforma"><label for="p2">Reforma</label></div>
+            <div class="pill"><input type="radio" name="tipo_projeto" id="p3" value="ampliacao"><label for="p3">Ampliação</label></div>
+            <div class="pill"><input type="radio" name="tipo_projeto" id="p4" value="decoracao"><label for="p4">Decoração / Interiores</label></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field-group" style="margin-bottom: 24px;">
+        <label>Situação do local <span class="required">*</span></label>
+        <div class="pills">
+          <div class="pill"><input type="radio" name="situacao" id="s1" value="proprio"><label for="s1">Próprio</label></div>
+          <div class="pill"><input type="radio" name="situacao" id="s2" value="compra"><label for="s2">Em fase de compra</label></div>
+          <div class="pill"><input type="radio" name="situacao" id="s3" value="chaves" onchange="checkSituacao()"><label for="s3">Aguardando chaves</label></div>
+          <div class="pill"><input type="radio" name="situacao" id="s4" value="planta" onchange="checkSituacao()"><label for="s4">Imóvel na planta</label></div>
+          <div class="pill"><input type="radio" name="situacao" id="s5" value="alugado"><label for="s5">Alugado</label></div>
+          <div class="pill"><input type="radio" name="situacao" id="s6" value="outro"><label for="s6">Outro</label></div>
+        </div>
+      </div>
+
+      <!-- Campo condicional: prazo de entrega -->
+      <div class="conditional-field" id="prazoEntrega">
+        <div class="field-group">
+          <label>Prazo previsto de entrega</label>
+          <select name="prazo_entrega">
+            <option value="">Selecione o prazo</option>
+            <option value="3meses">3 meses</option>
+            <option value="6meses">6 meses</option>
+            <option value="1ano">1 ano</option>
+            <option value="1.5ano">1 ano e meio</option>
+            <option value="2anos">2 anos</option>
+            <option value="3anos">3 anos ou mais</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>Área aproximada do imóvel <span class="required">*</span></label>
+          <input type="text" name="area" placeholder="Ex: 80m², 120m²">
+        </div>
+        <div class="field-group">
+          <label>Bairro / Localização</label>
+          <input type="text" name="bairro" placeholder="Bairro e cidade">
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-bottom: 24px;">
+        <label>Expectativa de prazo para o projeto</label>
+        <div class="pills">
+          <div class="pill"><input type="radio" name="prazo_projeto" id="pr1" value="urgente"><label for="pr1">Urgente — o quanto antes</label></div>
+          <div class="pill"><input type="radio" name="prazo_projeto" id="pr2" value="3meses"><label for="pr2">Até 3 meses</label></div>
+          <div class="pill"><input type="radio" name="prazo_projeto" id="pr3" value="6meses"><label for="pr3">Até 6 meses</label></div>
+          <div class="pill"><input type="radio" name="prazo_projeto" id="pr4" value="1ano"><label for="pr4">Até 1 ano</label></div>
+          <div class="pill"><input type="radio" name="prazo_projeto" id="pr5" value="sem_pressa"><label for="pr5">Sem pressa, ainda pesquisando</label></div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>Expectativa para início</label>
+        <div class="pills" style="margin-top: 4px;">
+          <div class="pill"><input type="radio" name="inicio" id="in1" value="pesquisa"><label for="in1">Ainda pesquisando</label></div>
+          <div class="pill"><input type="radio" name="inicio" id="in2" value="iniciar"><label for="in2">Gostaria de iniciar</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SEÇÃO 3: AMBIENTES & ARQUIVOS ── -->
+    <div class="form-section" data-section="2">
+      <div class="section-header">
+        <div class="section-number">03</div>
+        <div class="section-title-wrap">
+          <h2>Ambientes & Materiais</h2>
+          <p>Quais espaços fazem parte do projeto e arquivos de referência</p>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-bottom: 32px;">
+        <label>Selecione os ambientes que integrarão o projeto</label>
+        <div class="ambientes-grid">
+          <div class="ambiente-item"><input type="checkbox" id="amb1" name="ambientes" value="sala_estar"><label for="amb1">Sala de estar</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb2" name="ambientes" value="sala_jantar"><label for="amb2">Sala de jantar</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb3" name="ambientes" value="cozinha"><label for="amb3">Cozinha</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb4" name="ambientes" value="quarto_master"><label for="amb4">Quarto master</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb5" name="ambientes" value="quartos"><label for="amb5">Quartos</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb6" name="ambientes" value="banheiro_master"><label for="amb6">Banheiro master</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb7" name="ambientes" value="banheiros"><label for="amb7">Banheiros</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb8" name="ambientes" value="lavabo"><label for="amb8">Lavabo</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb9" name="ambientes" value="escritorio"><label for="amb9">Escritório / Home office</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb10" name="ambientes" value="area_gourmet"><label for="amb10">Área gourmet</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb11" name="ambientes" value="piscina"><label for="amb11">Piscina / Área externa</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb12" name="ambientes" value="lavanderia"><label for="amb12">Lavanderia</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb13" name="ambientes" value="garagem"><label for="amb13">Garagem</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb14" name="ambientes" value="varanda"><label for="amb14">Varanda / Terraço</label></div>
+          <div class="ambiente-item"><input type="checkbox" id="amb15" name="ambientes" value="outro_amb"><label for="amb15">Outro</label></div>
+        </div>
+
+        <div class="field-group" style="margin-top: 16px;">
+          <label>Descreva os ambientes selecionados e metragens aproximadas <span class="optional">(opcional)</span></label>
+          <textarea name="descricao_ambientes" placeholder="Ex: Sala de estar — 30m², cozinha integrada — 18m², 2 quartos — cada um com 15m²..."></textarea>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field-row full">
+        <div class="field-group">
+          <label>Plantas ou fotos do espaço <span class="optional">(opcional)</span></label>
+          <div class="file-upload" id="uploadEspaco">
+            <input type="file" multiple accept="image/*,.pdf" id="filesEspaco" onchange="handleFiles('filesEspaco','listEspaco')">
+            <div class="file-upload-icon">⬆</div>
+            <p><strong>Clique para anexar</strong> ou arraste os arquivos</p>
+            <p style="margin-top:6px">Plantas, fotos internas • JPG, PNG, PDF</p>
+          </div>
+          <div class="file-list" id="listEspaco"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SEÇÃO 4: IDENTIDADE ESTÉTICA ── -->
+    <div class="form-section" data-section="3">
+      <div class="section-header">
+        <div class="section-number">04</div>
+        <div class="section-title-wrap">
+          <h2>Identidade Estética</h2>
+          <p>Escolha os estilos que mais ressoam com seu gosto — pode selecionar mais de um</p>
+        </div>
+      </div>
+
+      <div class="aesthetic-grid">
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'classico')">
+          <input type="checkbox" name="estilos" value="classico">
+          <img class="card-img-real" src="images/classico.jpg" alt="classico">
+          <div class="card-label">Clássico</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'contemporaneo')">
+          <input type="checkbox" name="estilos" value="contemporaneo">
+          <img class="card-img-real" src="images/contemporaneo.jpg" alt="contemporaneo">
+          <div class="card-label">Contemporâneo</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'industrial')">
+          <input type="checkbox" name="estilos" value="industrial">
+          <img class="card-img-real" src="images/industrial.jpg" alt="industrial">
+          <div class="card-label">Industrial</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'japandi')">
+          <input type="checkbox" name="estilos" value="japandi">
+          <img class="card-img-real" src="images/japandi.jpg" alt="japandi">
+          <div class="card-label">Japandi</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'luxo')">
+          <input type="checkbox" name="estilos" value="luxo">
+          <img class="card-img-real" src="images/luxo.jpg" alt="luxo">
+          <div class="card-label">Luxo</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'escandinavo')">
+          <input type="checkbox" name="estilos" value="escandinavo">
+          <img class="card-img-real" src="images/escandinavo.jpg" alt="escandinavo">
+          <div class="card-label">Escandinavo</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'mediterraneo')">
+          <input type="checkbox" name="estilos" value="mediterraneo">
+          <img class="card-img-real" src="images/mediterraneo.jpg" alt="mediterraneo">
+          <div class="card-label">Mediterrâneo</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'organico')">
+          <input type="checkbox" name="estilos" value="organico">
+          <img class="card-img-real" src="images/organico.jpg" alt="organico">
+          <div class="card-label">Orgânico / Biofílico</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'art_deco')">
+          <input type="checkbox" name="estilos" value="art_deco">
+          <img class="card-img-real" src="images/art_deco.jpg" alt="art_deco">
+          <div class="card-label">Art Déco</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'boho')">
+          <input type="checkbox" name="estilos" value="boho">
+          <img class="card-img-real" src="images/boho.jpg" alt="boho">
+          <div class="card-label">Boho / Étnico</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'minimalista')">
+          <input type="checkbox" name="estilos" value="minimalista">
+          <img class="card-img-real" src="images/minimalista.jpg" alt="minimalista">
+          <div class="card-label">Minimalista</div>
+        </div>
+        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'moderno')">
+          <input type="checkbox" name="estilos" value="moderno">
+          <img class="card-img-real" src="images/moderno.jpg" alt="moderno">
+          <div class="card-label">Moderno</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field-group">
+        <label>Fotos de referência estética <span class="optional">(opcional)</span></label>
+        <p class="hint" style="margin-bottom:12px;">Inclua abaixo imagens que te inspiram — Pinterest, Instagram, revistas. Quanto mais exemplos, melhor!</p>
+        <div class="file-upload" id="uploadRef">
+          <input type="file" multiple accept="image/*" id="filesRef" onchange="handleFiles('filesRef','listRef')">
+          <div class="file-upload-icon">🖼</div>
+          <p><strong>Clique para anexar</strong> ou arraste os arquivos</p>
+          <p style="margin-top:6px">Imagens de inspiração • JPG, PNG</p>
+        </div>
+        <div class="file-list" id="listRef"></div>
+      </div>
+    </div>
+    <div class="form-section" data-section="4">
+      <div class="section-header">
+        <div class="section-number">05</div>
+        <div class="section-title-wrap">
+          <h2>Paleta & Atmosfera</h2>
+          <p>Tons que te atraem e a sensação que deseja no espaço</p>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-bottom: 32px;">
+        <label>Paleta de cores preferida <span class="optional">(selecione quantas quiser)</span></label>
+        <div class="palette-cards-grid">
+          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="neutros">
+            <input type="checkbox" name="paleta" value="neutros">
+            <div class="pc-swatches">
+              <span style="background:#F5F2EE"></span><span style="background:#E5DDD4"></span><span style="background:#C8BCAF"></span><span style="background:#9A8E83"></span><span style="background:#5C5650"></span>
+            </div>
+            <div class="pc-label">Neutros</div>
+            <div class="pc-desc">Branco, areia, cinza, linho</div>
+          </div>
+          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="pasteis">
+            <input type="checkbox" name="paleta" value="pasteis">
+            <div class="pc-swatches">
+              <span style="background:#F7E4DC"></span><span style="background:#EAE0F0"></span><span style="background:#D4EAE0"></span><span style="background:#D4E8F5"></span><span style="background:#F5EBD0"></span>
+            </div>
+            <div class="pc-label">Pastéis</div>
+            <div class="pc-desc">Tons suaves e delicados</div>
+          </div>
+          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="terrosos">
+            <input type="checkbox" name="paleta" value="terrosos">
+            <div class="pc-swatches">
+              <span style="background:#C47A55"></span><span style="background:#A05C38"></span><span style="background:#8B6040"></span><span style="background:#6B4A2A"></span><span style="background:#4A3020"></span>
+            </div>
+            <div class="pc-label">Terrosos</div>
+            <div class="pc-desc">Terracota, cobre, siena</div>
+          </div>
+          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="verdes">
+            <input type="checkbox" name="paleta" value="verdes">
+            <div class="pc-swatches">
+              <span style="background:#C4D4B8"></span><span style="background:#8A9B7A"></span><span style="background:#5B7A4A"></span><span style="background:#2D4A3E"></span><span style="background:#1A3020"></span>
+            </div>
+            <div class="pc-label">Verdes Naturais</div>
+            <div class="pc-desc">Sage, musgo, floresta</div>
+          </div>
+          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="azuis">
+            <input type="checkbox" name="paleta" value="azuis">
+            <div class="pc-swatches">
+              <span style="background:#D0E4F0"></span><span style="background:#7AAACF"></span><span style="background:#3A78A8"></span><span style="background:#1C4870"></span><span style="background:#0A2040"></span>
+            </div>
+            <div class="pc-label">Azuis</div>
+            <div class="pc-desc">Céu, navy, índigo, petróleo</div>
+          </div>
+          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="escuros">
+            <input type="checkbox" name="paleta" value="escuros">
+            <div class="pc-swatches">
+              <span style="background:#3A3A3A"></span><span style="background:#2A2A2A"></span><span style="background:#1A1A1A"></span><span style="background:#0A0A0A"></span><span style="background:#000000"></span>
+            </div>
+            <div class="pc-label">Escuros & Dramáticos</div>
+            <div class="pc-desc">Carvão, preto fosco, noite</div>
+          </div>
+          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="dourados">
+            <input type="checkbox" name="paleta" value="dourados">
+            <div class="pc-swatches">
+              <span style="background:#F5E8C0"></span><span style="background:#D4B060"></span><span style="background:#B8966B"></span><span style="background:#8B6930"></span><span style="background:#5A4020"></span>
+            </div>
+            <div class="pc-label">Dourados & Quentes</div>
+            <div class="pc-desc">Ouro, âmbar, mel, caramelo</div>
+          </div>
+          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="vivos">
+            <input type="checkbox" name="paleta" value="vivos">
+            <div class="pc-swatches">
+              <span style="background:#E84040"></span><span style="background:#F09030"></span><span style="background:#E8D020"></span><span style="background:#40A840"></span><span style="background:#3060E0"></span>
+            </div>
+            <div class="pc-label">Cores Vivas</div>
+            <div class="pc-desc">Alegres, saturadas, marcantes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-bottom: 32px;">
+        <label>Cores específicas preferidas <span class="optional">(opcional)</span></label>
+        <p class="hint" style="margin-bottom:10px;">Descreva cores ou referencie tons que te agradam — nomes, códigos hex, referências de marcas</p>
+        <input type="text" name="cores_especificas" placeholder="Ex: verde musgo, azul petróleo, off-white quente, rosa antigo...">
+      </div>
+
+      <div class="slider-wrap">
+        <div class="slider-labels">
+          <span>🌙 Atmosfera acolhedora e sombria</span>
+          <span>☀️ Luminoso e aéreo</span>
+        </div>
+        <input type="range" name="luminosidade" min="0" max="100" value="65" id="luminSlider">
+        <div id="luminLabel" style="text-align:center; margin-top:10px; font-size:0.75rem; letter-spacing:0.08em;  color:var(--muted);">Levemente luminoso</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field-group">
+        <label>Palavras que descrevem a atmosfera que deseja</label>
+        <div class="pills">
+          <div class="pill"><input type="checkbox" name="atmosfera" id="at1" value="aconchegante"><label for="at1">Aconchegante</label></div>
+          <div class="pill"><input type="checkbox" name="atmosfera" id="at2" value="sofisticado"><label for="at2">Sofisticado</label></div>
+          <div class="pill"><input type="checkbox" name="atmosfera" id="at3" value="sereno"><label for="at3">Sereno</label></div>
+          <div class="pill"><input type="checkbox" name="atmosfera" id="at4" value="alegre"><label for="at4">Alegre</label></div>
+          <div class="pill"><input type="checkbox" name="atmosfera" id="at5" value="minimalista"><label for="at5">Clean / Minimalista</label></div>
+          <div class="pill"><input type="checkbox" name="atmosfera" id="at6" value="arrojado"><label for="at6">Arrojado</label></div>
+          <div class="pill"><input type="checkbox" name="atmosfera" id="at7" value="organico"><label for="at7">Orgânico / Natural</label></div>
+          <div class="pill"><input type="checkbox" name="atmosfera" id="at8" value="romantico"><label for="at8">Romântico</label></div>
+          <div class="pill"><input type="checkbox" name="atmosfera" id="at9" value="funcional"><label for="at9">Funcional</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SEÇÃO 6: PRIORIDADES ── -->
+    <div class="form-section" data-section="5">
+      <div class="section-header">
+        <div class="section-number">06</div>
+        <div class="section-title-wrap">
+          <h2>O que mais importa</h2>
+          <p>Ordene as prioridades e indique os ambientes-chave</p>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-bottom: 40px;">
+        <label>Arraste para ordenar suas prioridades (do mais ao menos importante)</label>
+        <div class="priority-list" id="priorityList">
+          <div class="priority-item" draggable="true" data-value="funcionalidade">
+            <div class="priority-num">1</div>
+            <div class="priority-text">Funcionalidade e organização dos espaços</div>
+            <div class="priority-handle">⋮⋮</div>
+          </div>
+          <div class="priority-item" draggable="true" data-value="estetica">
+            <div class="priority-num">2</div>
+            <div class="priority-text">Estética e identidade visual</div>
+            <div class="priority-handle">⋮⋮</div>
+          </div>
+          <div class="priority-item" draggable="true" data-value="sustentabilidade">
+            <div class="priority-num">3</div>
+            <div class="priority-text">Sustentabilidade e materiais naturais</div>
+            <div class="priority-handle">⋮⋮</div>
+          </div>
+          <div class="priority-item" draggable="true" data-value="tecnologia">
+            <div class="priority-num">4</div>
+            <div class="priority-text">Tecnologia e automação residencial</div>
+            <div class="priority-handle">⋮⋮</div>
+          </div>
+          <div class="priority-item" draggable="true" data-value="custo_beneficio">
+            <div class="priority-num">5</div>
+            <div class="priority-text">Custo-benefício e otimização do orçamento</div>
+            <div class="priority-handle">⋮⋮</div>
+          </div>
+          <div class="priority-item" draggable="true" data-value="valorizacao">
+            <div class="priority-num">6</div>
+            <div class="priority-text">Valorização do imóvel</div>
+            <div class="priority-handle">⋮⋮</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>Ambiente-chave — qual espaço merece atenção especial?</label>
+        <textarea name="ambiente_chave" placeholder="Ex: A cozinha é o coração da nossa casa, passamos muito tempo lá. O escritório também é essencial pois trabalho em casa..."></textarea>
+      </div>
+    </div>
+
+    <!-- ── SEÇÃO 7: INVESTIMENTO ── -->
+    <div class="form-section" data-section="6">
+      <div class="section-header">
+        <div class="section-number">07</div>
+        <div class="section-title-wrap">
+          <h2>Investimento & Considerações</h2>
+          <p>Orçamento previsto, restrições e seu espaço para sonhar</p>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-bottom: 32px;">
+        <label>Valor disponível para investir no projeto <span class="required">*</span></label>
+        <div class="budget-options">
+          <div class="budget-opt"><input type="radio" name="orcamento" id="b1" value="10-30k"><label for="b1"><span class="amount">R$ 10–30 mil</span><span class="desc">Reforma pontual</span></label></div>
+          <div class="budget-opt"><input type="radio" name="orcamento" id="b2" value="30-60k"><label for="b2"><span class="amount">R$ 30–60 mil</span><span class="desc">Reforma parcial</span></label></div>
+          <div class="budget-opt"><input type="radio" name="orcamento" id="b3" value="60-100k"><label for="b3"><span class="amount">R$ 60–100 mil</span><span class="desc">Reforma completa</span></label></div>
+          <div class="budget-opt"><input type="radio" name="orcamento" id="b4" value="100-200k"><label for="b4"><span class="amount">R$ 100–200 mil</span><span class="desc">Projeto completo</span></label></div>
+          <div class="budget-opt"><input type="radio" name="orcamento" id="b5" value="200-400k"><label for="b5"><span class="amount">R$ 200–400 mil</span><span class="desc">Alto padrão</span></label></div>
+          <div class="budget-opt"><input type="radio" name="orcamento" id="b6" value="400k+"><label for="b6"><span class="amount">Acima de R$ 400 mil</span><span class="desc">Luxo / exclusivo</span></label></div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>Restrições ou condicionantes <span class="optional">(opcional)</span></label>
+          <textarea name="restricoes" placeholder="Ex: Não pode alterar a estrutura, colunas fixas, área de proteção histórica, vizinhos com restrições de obra..."></textarea>
+        </div>
+        <div class="field-group">
+          <label>Seu espaço de sonho — descreva livremente</label>
+          <textarea name="sonho" placeholder="Se dinheiro e tempo não fossem limitantes, como seria o espaço dos seus sonhos? Compartilhe suas visões, por mais detalhadas ou abstratas que sejam..."></textarea>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>Alguma observação adicional? <span class="optional">(opcional)</span></label>
+        <textarea name="observacoes" placeholder="Informações extras, perguntas, detalhes que não encontrou espaço para compartilhar..."></textarea>
+      </div>
+    </div>
+
+    <!-- ── SUBMIT ── -->
+    <div class="submit-section">
+      <p>Ao enviar, você concorda que seus dados sejam usados para elaboração de proposta de projeto</p>
+      <button type="submit" class="btn-submit">
+        <span>Enviar briefing</span>
+        <span>→</span>
+      </button>
+    </div>
+
+  </form>
+</main>
+
+<!-- Success Overlay -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-mark"></div>
+  <h2>Briefing recebido!</h2>
+  <p>Obrigado por compartilhar seus sonhos conosco. Em breve entraremos em contato para dar os próximos passos.</p>
+  <div style="font-size:0.72rem; letter-spacing:0.1em;  color:var(--muted); margin-top:16px;">Até breve ✦</div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
