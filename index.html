@@ -1,625 +1,495 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Briefing de Projeto — Escritório de Arquitetura</title>
-<meta name="description" content="Conte-nos sobre o seu projeto: preencha o briefing e receba uma proposta personalizada do nosso escritório de arquitetura.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<!-- Supabase SDK para upload de arquivos -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitedora — Escritório de Arquitetura</title>
+  <meta name="description"
+    content="Arquitedora — projetos de construção, reforma e decoração com sensibilidade e técnica.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Montserrat:wght@200;300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header>
-  <img src="images/logo.png" alt="Logotipo oficial Isa Arquitetura e Design de Interiores" class="header-logo">
-  <p>Conte-nos sobre seus sonhos,<br>vamos transformá-los em espaços!</p>
-</header>
+  <!-- ══ BOTÃO FIXO DE VOLTAR AO MENU ══ -->
+  <button class="btn-fixed-menu" id="btnFixedMenu" onclick="scrollToTop()">← Voltar ao menu</button>
 
-<div class="progress-bar">
-  <div class="progress-track">
-    <div class="progress-fill" id="progressFill"></div>
-  </div>
-  <div class="progress-bar-content">
-    <a href="../arquitedora-site-completo/index.html" class="btn-back-menu">← Voltar ao menu</a>
-    <div class="progress-steps">
-    <div class="step-dot active" onclick="scrollToSection(0)"><span class="dot"></span> Identificação</div>
-    <div class="step-dot" onclick="scrollToSection(1)"><span class="dot"></span> Projeto</div>
-    <div class="step-dot" onclick="scrollToSection(2)"><span class="dot"></span> Ambientes</div>
-    <div class="step-dot" onclick="scrollToSection(3)"><span class="dot"></span> Estética</div>
-    <div class="step-dot" onclick="scrollToSection(4)"><span class="dot"></span> Paleta</div>
-    <div class="step-dot" onclick="scrollToSection(5)"><span class="dot"></span> Prioridades</div>
-    <div class="step-dot" onclick="scrollToSection(6)"><span class="dot"></span> Investimento</div>
+  <!-- ══ HERO HEADER (INÍCIO) ══ -->
+  <header class="hero-header" id="sec-inicio">
+    <div class="hero-logo-wrap">
+      <img src="img/Captura de tela 2026-07-29 143025 (1).png"
+        alt="Logotipo oficial Isa Arquitetura e Design de Interiores" class="hero-logo-img">
     </div>
-  </div>
-</div>
+  </header>
 
-<main>
-  <form id="briefingForm">
+  <!-- ══ GRADE DE MENU DE CARDS (3x2) ══ -->
+  <section class="menu-section">
+    <div class="home-grid-6">
 
-    <!-- ── SEÇÃO 1: IDENTIFICAÇÃO ── -->
-    <div class="form-section" data-section="0">
-      <div class="section-header">
-        <div class="section-number">01</div>
-        <div class="section-title-wrap">
-          <h2>Identificação</h2>
-          <p>Quem é você e como podemos entrar em contato</p>
+      <!-- Card 1: Sobre Mim -->
+      <a class="card card-sobre" href="#sec-sobre" onclick="scrollToSection('sec-sobre'); return false;">
+        <span class="card-plus"><img src="img/plus_7945330.png"
+            alt="Ícone de expansão para acessar detalhes do projeto"></span>
+        <div class="card-icon">
+          <img src="img/Captura de tela 2026-07-29 142722.png"
+            alt="Ícone ilustrativo da seção Sobre Mim e trajetória profissional">
         </div>
-      </div>
+        <div class="card-label">sobre mim</div>
+      </a>
 
-      <div class="field-row">
-        <div class="field-group">
-          <label>Nome completo <span class="required">*</span></label>
-          <input type="text" name="nome" placeholder="Seu nome" required>
+      <!-- Card 2: Construção -->
+      <a class="card card-construcao" href="#sec-construcao" onclick="scrollToSection('sec-construcao'); return false;">
+        <span class="card-plus"><img src="img/plus_7945330.png"
+            alt="Ícone de expansão para acessar detalhes do projeto"></span>
+        <div class="card-icon">
+          <img src="img/homepage_3626163.png" alt="Ícone representando o serviço de construção e execução de obras">
         </div>
-        <div class="field-group">
-          <label>E-mail <span class="required">*</span></label>
-          <input type="email" name="email" placeholder="seu@email.com" required>
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field-group">
-          <label>Telefone / WhatsApp <span class="required">*</span></label>
-          <input type="tel" name="telefone" placeholder="(11) 90000-0000" required>
-        </div>
-        <div class="field-group">
-          <label>Cidade</label>
-          <input type="text" name="cidade" placeholder="Cidade, Estado">
-        </div>
-      </div>
+        <div class="card-label">construção</div>
+      </a>
 
-      <div class="divider"></div>
+      <!-- Card 3: Reforma -->
+      <a class="card card-reforma" href="#sec-reforma" onclick="scrollToSection('sec-reforma'); return false;">
+        <span class="card-plus"><img src="img/plus_7945330.png"
+            alt="Ícone de expansão para acessar detalhes do projeto"></span>
+        <div class="card-icon">
+          <img src="img/trowel_15916045.png" alt="Ícone representando o serviço de reforma e readequação de espaços">
+        </div>
+        <div class="card-label">reforma</div>
+      </a>
 
-      <div class="field-group">
-        <label>Como conheceu nosso trabalho?</label>
-        <div class="pills">
-          <div class="pill"><input type="radio" name="origem" id="o1" value="nos_conhecemos"><label for="o1">Já nos conhecemos</label></div>
-          <div class="pill"><input type="radio" name="origem" id="o2" value="indicacao"><label for="o2">Indicação</label></div>
-          <div class="pill"><input type="radio" name="origem" id="o3" value="instagram"><label for="o3">Instagram</label></div>
-          <div class="pill"><input type="radio" name="origem" id="o4" value="google"><label for="o4">Pesquisa Google</label></div>
-          <div class="pill"><input type="radio" name="origem" id="o5" value="outros"><label for="o5">Outros</label></div>
+      <!-- Card 4: Decoração -->
+      <a class="card card-decoracao" href="#sec-decoracao" onclick="scrollToSection('sec-decoracao'); return false;">
+        <span class="card-plus"><img src="img/plus_7945330.png"
+            alt="Ícone de expansão para acessar detalhes do projeto"></span>
+        <div class="card-icon">
+          <img src="img/vase_8659816.png" alt="Ícone representando o serviço de decoração e design de interiores">
+        </div>
+        <div class="card-label">decoração</div>
+      </a>
+
+      <!-- Card 5: Orçamentos -->
+      <a class="card card-orcamentos" href="#sec-orcamentos" onclick="scrollToSection('sec-orcamentos'); return false;">
+        <span class="card-plus"><img src="img/plus_7945330.png"
+            alt="Ícone de expansão para acessar detalhes do projeto"></span>
+        <div class="card-icon">
+          <img src="img/ChatGPT_Image_30_de_jul._de_2026__19_29_57-removebg-preview.png"
+            alt="Ícone representando a solicitação de orçamentos de projetos">
+        </div>
+        <div class="card-label">orçamentos</div>
+      </a>
+
+      <!-- Card 6: Contato -->
+      <a class="card card-contato" href="#sec-contato" onclick="scrollToSection('sec-contato'); return false;">
+        <span class="card-plus"><img src="img/plus_7945330.png"
+            alt="Ícone de expansão para acessar detalhes do projeto"></span>
+        <div class="card-icon">
+          <img src="img/Captura de tela 2026-07-29 142739.png"
+            alt="Ícone representando os canais de atendimento e contato">
+        </div>
+        <div class="card-label">contato</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       SEÇÕES DO SITE (ROLAGEM FLUIDA E CONTÍNUA)
+       ══════════════════════════════════════════════════ -->
+
+  <!-- 1. SOBRE MIM -->
+  <section class="site-section sec-sobre" id="sec-sobre">
+    <div class="inner-page inner-sobre">
+      <div class="sobre-layout">
+        <div class="sobre-text">
+          <h1>sobre mim</h1>
+          <h2>Isadora de Jesus</h2>
+          <p>Acredito que a arquitetura vai muito além da criação de edifícios. Para mim, ela é uma forma de transformar
+            a maneira como as pessoas vivem, trabalham e se relacionam com o mundo ao seu redor. Cada projeto é uma
+            oportunidade de criar espaços que despertem sensações, contem histórias e contribuam para uma vida mais
+            funcional, humana e significativa.</p>
+          <p>Sou Arquiteta e Urbanista formada pela Universidade São Judas Tadeu em 2023. Ao longo da minha trajetória
+            profissional, especializei-me na coordenação e compatibilização de grandes empreendimentos residenciais e
+            comerciais, atuando na integração entre arquitetura, estruturas e instalações para garantir que cada projeto
+            seja tecnicamente consistente, eficiente e executável. Essa experiência me ensinou que a boa arquitetura
+            nasce tanto da criatividade quanto da atenção aos detalhes que muitas vezes permanecem invisíveis, mas fazem
+            toda a diferença no resultado final.</p>
+          <p>Hoje, meu propósito é unir sensibilidade e técnica. Gosto de compreender a realidade de cada cliente antes
+            mesmo de pensar em soluções, porque acredito que bons projetos não são definidos apenas pela estética, mas
+            pela forma como respondem às necessidades, aos hábitos e aos sonhos de quem irá viver aquele espaço.</p>
+          <p>Com experiência no desenvolvimento e na coordenação de projetos multidisciplinares, enxergo cada desafio
+            como uma oportunidade de encontrar soluções inteligentes e bem planejadas. Em cada projeto, busco
+            compreender a essência e as necessidades de cada cliente, traduzindo-as em ambientes que façam sentido,
+            inspiram e permanecem relevantes ao longo do tempo.</p>
+        </div>
+        <div class="sobre-image-area">
+          <img src="img/sobre_mim_artistic_nobg.png"
+            alt="Composição artística de Isadora Franca, fundadora e arquiteta responsável pela Arquitedora"
+            class="inner-side-img inner-side-img-sobre">
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ── SEÇÃO 2: SOBRE O PROJETO ── -->
-    <div class="form-section" data-section="1">
-      <div class="section-header">
-        <div class="section-number">02</div>
-        <div class="section-title-wrap">
-          <h2>Sobre o Projeto</h2>
-          <p>Detalhes do imóvel e tipo de intervenção desejada</p>
-        </div>
-      </div>
-
-      <div class="field-row">
-        <div class="field-group">
-          <label>Tipo de imóvel <span class="required">*</span></label>
-          <p class="group-error" id="error-tipo_imovel"></p>
-          <div class="pills pills-col">
-            <div class="pill"><input type="radio" name="tipo_imovel" id="i1" value="terreno"><label for="i1">Terreno</label></div>
-            <div class="pill"><input type="radio" name="tipo_imovel" id="i2" value="casa"><label for="i2">Casa</label></div>
-            <div class="pill"><input type="radio" name="tipo_imovel" id="i3" value="apartamento"><label for="i3">Apartamento</label></div>
-            <div class="pill"><input type="radio" name="tipo_imovel" id="i4" value="comercial"><label for="i4">Comercial</label></div>
+  <!-- 2. CONSTRUÇÃO -->
+  <section class="site-section sec-construcao" id="sec-construcao">
+    <div class="inner-page inner-construcao">
+      <div class="colored-header-wrap">
+        <div class="section-decor-strip decor-construcao"></div>
+        <div class="service-header">
+        <div class="service-header-text">
+          <h1>construção</h1>
+          <p>Quando falo em construção, penso no desenvolvimento de um projeto desde o início. Cada decisão é pensada de
+            acordo com as necessidades dos meus clientes, as características do terreno e fatores como orientação solar,
+            ventilação e entorno, buscando aproveitar o espaço da melhor forma possível.</p>
+          <p>Se você tem um terreno e quer transformar uma ideia em um espaço que faça sentido para você, essa é uma
+            ótima oportunidade para começar a tirar esse sonho do papel.</p>
+          <div class="observacoes-inline">
+            <h3>observações:</h3>
+            <p>Essa página ainda está em desenvolvimento!</p>
           </div>
         </div>
-        <div class="field-group">
-          <label>Tipo de projeto <span class="required">*</span></label>
-          <p class="group-error" id="error-tipo_projeto"></p>
-          <div class="pills pills-col">
-            <div class="pill"><input type="radio" name="tipo_projeto" id="p1" value="construcao"><label for="p1">Construção</label></div>
-            <div class="pill"><input type="radio" name="tipo_projeto" id="p2" value="reforma"><label for="p2">Reforma</label></div>
-            <div class="pill"><input type="radio" name="tipo_projeto" id="p3" value="ampliacao"><label for="p3">Ampliação</label></div>
-            <div class="pill"><input type="radio" name="tipo_projeto" id="p4" value="decoracao"><label for="p4">Decoração / Interiores</label></div>
-          </div>
+        <div class="service-icon-large">
+          <img src="img/homepage_3626163.png" alt="Ícone representando o serviço de construção e execução de obras"
+            class="inner-side-img">
         </div>
       </div>
-
-      <div class="divider"></div>
-
-      <div class="field-group" style="margin-bottom: 24px;">
-        <label>Situação do local <span class="required">*</span></label>
-          <p class="group-error" id="error-situacao"></p>
-        <div class="pills">
-          <div class="pill"><input type="radio" name="situacao" id="s1" value="proprio"><label for="s1">Próprio</label></div>
-          <div class="pill"><input type="radio" name="situacao" id="s2" value="compra"><label for="s2">Em fase de compra</label></div>
-          <div class="pill"><input type="radio" name="situacao" id="s3" value="chaves" onchange="checkSituacao()"><label for="s3">Aguardando chaves</label></div>
-          <div class="pill"><input type="radio" name="situacao" id="s4" value="planta" onchange="checkSituacao()"><label for="s4">Imóvel na planta</label></div>
-          <div class="pill"><input type="radio" name="situacao" id="s5" value="alugado"><label for="s5">Alugado</label></div>
-          <div class="pill"><input type="radio" name="situacao" id="s6" value="outro"><label for="s6">Outro</label></div>
-        </div>
-      </div>
-
-      <!-- Campo condicional: prazo de entrega -->
-      <div class="conditional-field" id="prazoEntrega">
-        <div class="field-group">
-          <label>Prazo previsto de entrega</label>
-          <select name="prazo_entrega">
-            <option value="">Selecione o prazo</option>
-            <option value="3meses">3 meses</option>
-            <option value="6meses">6 meses</option>
-            <option value="1ano">1 ano</option>
-            <option value="1.5ano">1 ano e meio</option>
-            <option value="2anos">2 anos</option>
-            <option value="3anos">3 anos ou mais</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="field-row">
-        <div class="field-group">
-          <label>Área aproximada do imóvel <span class="required">*</span></label>
-          <input type="text" name="area" placeholder="Ex: 80m², 120m²" required>
-        </div>
-        <div class="field-group">
-          <label>Bairro / Localização</label>
-          <input type="text" name="bairro" placeholder="Bairro e cidade">
-        </div>
-      </div>
-
-      <div class="field-group" style="margin-bottom: 24px;">
-        <label>Expectativa de prazo para o projeto</label>
-        <div class="pills">
-          <div class="pill"><input type="radio" name="prazo_projeto" id="pr1" value="urgente"><label for="pr1">Urgente — o quanto antes</label></div>
-          <div class="pill"><input type="radio" name="prazo_projeto" id="pr2" value="3meses"><label for="pr2">Até 3 meses</label></div>
-          <div class="pill"><input type="radio" name="prazo_projeto" id="pr3" value="6meses"><label for="pr3">Até 6 meses</label></div>
-          <div class="pill"><input type="radio" name="prazo_projeto" id="pr4" value="1ano"><label for="pr4">Até 1 ano</label></div>
-          <div class="pill"><input type="radio" name="prazo_projeto" id="pr5" value="sem_pressa"><label for="pr5">Sem pressa, ainda pesquisando</label></div>
-        </div>
-      </div>
-
-      <div class="field-group">
-        <label>Expectativa para início</label>
-        <div class="pills" style="margin-top: 4px;">
-          <div class="pill"><input type="radio" name="inicio" id="in1" value="pesquisa"><label for="in1">Ainda pesquisando</label></div>
-          <div class="pill"><input type="radio" name="inicio" id="in2" value="iniciar"><label for="in2">Gostaria de iniciar</label></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── SEÇÃO 3: AMBIENTES & ARQUIVOS ── -->
-    <div class="form-section" data-section="2">
-      <div class="section-header">
-        <div class="section-number">03</div>
-        <div class="section-title-wrap">
-          <h2>Ambientes & Materiais</h2>
-          <p>Quais espaços fazem parte do projeto e arquivos de referência</p>
-        </div>
-      </div>
-
-      <div class="field-group" style="margin-bottom: 32px;">
-        <label>Selecione os ambientes que integrarão o projeto</label>
-        <div class="ambientes-grid">
-          <div class="ambiente-item"><input type="checkbox" id="amb1" name="ambientes" value="sala_estar"><label for="amb1">Sala de estar</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb2" name="ambientes" value="sala_jantar"><label for="amb2">Sala de jantar</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb3" name="ambientes" value="cozinha"><label for="amb3">Cozinha</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb4" name="ambientes" value="quarto_master"><label for="amb4">Quarto master</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb5" name="ambientes" value="quartos"><label for="amb5">Quartos</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb6" name="ambientes" value="banheiro_master"><label for="amb6">Banheiro master</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb7" name="ambientes" value="banheiros"><label for="amb7">Banheiros</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb8" name="ambientes" value="lavabo"><label for="amb8">Lavabo</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb9" name="ambientes" value="escritorio"><label for="amb9">Escritório / Home office</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb10" name="ambientes" value="area_gourmet"><label for="amb10">Área gourmet</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb11" name="ambientes" value="piscina"><label for="amb11">Piscina / Área externa</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb12" name="ambientes" value="lavanderia"><label for="amb12">Lavanderia</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb13" name="ambientes" value="garagem"><label for="amb13">Garagem</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb14" name="ambientes" value="varanda"><label for="amb14">Varanda / Terraço</label></div>
-          <div class="ambiente-item"><input type="checkbox" id="amb15" name="ambientes" value="outro_amb"><label for="amb15">Outro</label></div>
+      </div><!-- /colored-header-wrap -->
+      <div class="project-showcase">
+        <div class="project-title-bar">
+          <h2>projeto: expo carrão <span class="tag-status">[não executado]</span></h2>
         </div>
 
-        <div class="field-group" style="margin-top: 16px;">
-          <label>Descreva os ambientes selecionados e metragens aproximadas <span class="optional">(opcional)</span></label>
-          <textarea name="descricao_ambientes" placeholder="Ex: Sala de estar — 30m², cozinha integrada — 18m², 2 quartos — cada um com 15m²..."></textarea>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="field-row full">
-        <div class="field-group">
-          <label>Plantas ou fotos do espaço <span class="optional">(opcional)</span></label>
-          <div class="file-upload" id="uploadEspaco">
-            <input type="file" multiple accept="image/*,.pdf" id="filesEspaco" onchange="handleFiles('filesEspaco','listEspaco')">
-            <div class="file-upload-icon">⬆</div>
-            <p><strong>Clique para anexar</strong> ou arraste os arquivos</p>
-            <p style="margin-top:6px">Plantas, fotos internas • JPG, PNG, PDF</p>
-          </div>
-          <div class="file-list" id="listEspaco"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── SEÇÃO 4: IDENTIDADE ESTÉTICA ── -->
-    <div class="form-section" data-section="3">
-      <div class="section-header">
-        <div class="section-number">04</div>
-        <div class="section-title-wrap">
-          <h2>Identidade Estética</h2>
-          <p>Escolha os estilos que mais ressoam com seu gosto — pode selecionar mais de um</p>
-        </div>
-      </div>
-
-      <div class="aesthetic-grid">
-        <!-- 1. Clássico -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'classico')" data-images='["images/classico.jpg", "images/classico_2.jpg", "images/classico_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="classico">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/classico.jpg" alt="clássico">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Clássico</div>
+        <div class="project-description-two-col">
+          <p>Esse foi um trabalho acadêmico realizado com o intuito de estudar o funcionamento de grandes estruturas.
+            Foi proposto a confecção de um pavilhão de exposições. Os critérios a serem atendidos eram:</p>
+          <ul>
+            <li>- Área total: 6.500m²</li>
+            <li>- Pé direito mínimo: 15m</li>
+            <li>- Vão mínimo entre apoios: 30m</li>
+            <li>- Escritório de 250m²</li>
+            <li>- 30 Conjuntos de Sanitários</li>
+            <li>- Torre para caixa d'água para 30 mil litros.</li>
+            <li>- Sistema construtivo estrutural: LIVRE</li>
+          </ul>
         </div>
 
-        <!-- 2. Contemporâneo -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'contemporaneo')" data-images='["images/contemporaneo.jpg", "images/contemporaneo_2.jpg", "images/contemporaneo_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="contemporaneo">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/contemporaneo.jpg" alt="contemporâneo">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Contemporâneo</div>
-        </div>
-
-        <!-- 3. Industrial -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'industrial')" data-images='["images/industrial.jpg", "images/industrial_2.jpg", "images/industrial_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="industrial">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/industrial.jpg" alt="industrial">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Industrial</div>
-        </div>
-
-        <!-- 4. Japandi -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'japandi')" data-images='["images/japandi.jpg", "images/japandi_2.jpg", "images/japandi_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="japandi">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/japandi.jpg" alt="japandi">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Japandi</div>
-        </div>
-
-        <!-- 5. Luxo -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'luxo')" data-images='["images/luxo.jpg", "images/luxo_2.jpg", "images/luxo_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="luxo">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/luxo.jpg" alt="luxo">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Luxo</div>
-        </div>
-
-        <!-- 6. Escandinavo -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'escandinavo')" data-images='["images/escandinavo.jpg", "images/escandinavo_2.jpg", "images/escandinavo_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="escandinavo">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/escandinavo.jpg" alt="escandinavo">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Escandinavo</div>
-        </div>
-
-        <!-- 7. Mediterrâneo -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'mediterraneo')" data-images='["images/mediterraneo.jpg", "images/mediterraneo_2.jpg", "images/mediterraneo_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="mediterraneo">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/mediterraneo.jpg" alt="mediterrâneo">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Mediterrâneo</div>
-        </div>
-
-        <!-- 8. Orgânico / Biofílico -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'organico')" data-images='["images/organico.jpg", "images/organico_2.jpg", "images/organico_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="organico">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/organico.jpg" alt="orgânico">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Orgânico / Biofílico</div>
-        </div>
-
-        <!-- 9. Art Déco -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'art_deco')" data-images='["images/art_deco.jpg", "images/art_deco_2.jpg", "images/art_deco_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="art_deco">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/art_deco.jpg" alt="art déco">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Art Déco</div>
-        </div>
-
-        <!-- 10. Boho / Étnico -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'boho')" data-images='["images/boho.jpg", "images/boho_2.jpg", "images/boho_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="boho">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/boho.jpg" alt="boho">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Boho / Étnico</div>
-        </div>
-
-        <!-- 11. Minimalista -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'minimalista')" data-images='["images/minimalista.jpg", "images/minimalista_2.jpg", "images/minimalista_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="minimalista">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/minimalista.jpg" alt="minimalista">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Minimalista</div>
-        </div>
-
-        <!-- 12. Moderno -->
-        <div class="aesthetic-card" onclick="toggleAesthetic(this, 'moderno')" data-images='["images/moderno.jpg", "images/moderno_2.jpg", "images/moderno_3.jpg"]' data-index="0" onmouseenter="startCardCarousel(this)" onmouseleave="stopCardCarousel(this)">
-          <input type="checkbox" name="estilos" value="moderno">
-          <button class="carousel-arrow prev" onclick="prevCardImage(event, this)">‹</button>
-          <img class="card-img-real" src="images/moderno.jpg" alt="moderno">
-          <button class="carousel-arrow next" onclick="nextCardImage(event, this)">›</button>
-          <div class="carousel-dots"><span class="active"></span><span></span><span></span></div>
-          <div class="card-label">Moderno</div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="field-group">
-        <label>Fotos de referência estética <span class="optional">(opcional)</span></label>
-        <p class="hint" style="margin-bottom:12px;">Inclua abaixo imagens que te inspiram — Pinterest, Instagram, revistas. Quanto mais exemplos, melhor!</p>
-        <div class="file-upload" id="uploadRef">
-          <input type="file" multiple accept="image/*" id="filesRef" onchange="handleFiles('filesRef','listRef')">
-          <div class="file-upload-icon">🖼</div>
-          <p><strong>Clique para anexar</strong> ou arraste os arquivos</p>
-          <p style="margin-top:6px">Imagens de inspiração • JPG, PNG</p>
-        </div>
-        <div class="file-list" id="listRef"></div>
-      </div>
-    </div>
-    <div class="form-section" data-section="4">
-      <div class="section-header">
-        <div class="section-number">05</div>
-        <div class="section-title-wrap">
-          <h2>Paleta & Atmosfera</h2>
-          <p>Tons que te atraem e a sensação que deseja no espaço</p>
-        </div>
-      </div>
-
-      <div class="field-group" style="margin-bottom: 32px;">
-        <label>Paleta de cores preferida <span class="optional">(selecione quantas quiser)</span></label>
-        <div class="palette-cards-grid">
-          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="neutros">
-            <input type="checkbox" name="paleta" value="neutros">
-            <div class="pc-swatches">
-              <span style="background:#F5F2EE"></span><span style="background:#E5DDD4"></span><span style="background:#C8BCAF"></span><span style="background:#9A8E83"></span><span style="background:#5C5650"></span>
+        <!-- 1ª IMAGEM HERO (SEAMLESS 2x2 GRID DOS 4 RENDERS 3D) -->
+        <div class="expo-renders-quadrant-block">
+          <div class="expo-quadrant-grid">
+            <div class="expo-quadrant-item">
+              <img src="img/expo 01.1.png" alt="Projeto Expo Carrão - Perspectiva 3D 01 da estrutura em arcos de madeira" class="expo-quadrant-img" onclick="openLightbox(this.src, this.alt, event)">
             </div>
-            <div class="pc-label">Neutros</div>
-            <div class="pc-desc">Branco, areia, cinza, linho</div>
-          </div>
-          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="pasteis">
-            <input type="checkbox" name="paleta" value="pasteis">
-            <div class="pc-swatches">
-              <span style="background:#F7E4DC"></span><span style="background:#EAE0F0"></span><span style="background:#D4EAE0"></span><span style="background:#D4E8F5"></span><span style="background:#F5EBD0"></span>
+            <div class="expo-quadrant-item">
+              <img src="img/expo 01.2.png" alt="Projeto Expo Carrão - Perspectiva 3D 02 da estrutura em arcos de madeira" class="expo-quadrant-img" onclick="openLightbox(this.src, this.alt, event)">
             </div>
-            <div class="pc-label">Pastéis</div>
-            <div class="pc-desc">Tons suaves e delicados</div>
-          </div>
-          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="terrosos">
-            <input type="checkbox" name="paleta" value="terrosos">
-            <div class="pc-swatches">
-              <span style="background:#C47A55"></span><span style="background:#A05C38"></span><span style="background:#8B6040"></span><span style="background:#6B4A2A"></span><span style="background:#4A3020"></span>
+            <div class="expo-quadrant-item">
+              <img src="img/expo 01.3.png" alt="Projeto Expo Carrão - Perspectiva 3D 03 da estrutura em arcos de madeira" class="expo-quadrant-img" onclick="openLightbox(this.src, this.alt, event)">
             </div>
-            <div class="pc-label">Terrosos</div>
-            <div class="pc-desc">Terracota, cobre, siena</div>
-          </div>
-          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="verdes">
-            <input type="checkbox" name="paleta" value="verdes">
-            <div class="pc-swatches">
-              <span style="background:#C4D4B8"></span><span style="background:#8A9B7A"></span><span style="background:#5B7A4A"></span><span style="background:#2D4A3E"></span><span style="background:#1A3020"></span>
+            <div class="expo-quadrant-item">
+              <img src="img/expo 01.4.png" alt="Projeto Expo Carrão - Perspectiva 3D 04 da estrutura em arcos de madeira" class="expo-quadrant-img" onclick="openLightbox(this.src, this.alt, event)">
             </div>
-            <div class="pc-label">Verdes Naturais</div>
-            <div class="pc-desc">Sage, musgo, floresta</div>
-          </div>
-          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="azuis">
-            <input type="checkbox" name="paleta" value="azuis">
-            <div class="pc-swatches">
-              <span style="background:#D0E4F0"></span><span style="background:#7AAACF"></span><span style="background:#3A78A8"></span><span style="background:#1C4870"></span><span style="background:#0A2040"></span>
-            </div>
-            <div class="pc-label">Azuis</div>
-            <div class="pc-desc">Céu, navy, índigo, petróleo</div>
-          </div>
-          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="escuros">
-            <input type="checkbox" name="paleta" value="escuros">
-            <div class="pc-swatches">
-              <span style="background:#3A3A3A"></span><span style="background:#2A2A2A"></span><span style="background:#1A1A1A"></span><span style="background:#0A0A0A"></span><span style="background:#000000"></span>
-            </div>
-            <div class="pc-label">Escuros & Dramáticos</div>
-            <div class="pc-desc">Carvão, preto fosco, noite</div>
-          </div>
-          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="dourados">
-            <input type="checkbox" name="paleta" value="dourados">
-            <div class="pc-swatches">
-              <span style="background:#F5E8C0"></span><span style="background:#D4B060"></span><span style="background:#B8966B"></span><span style="background:#8B6930"></span><span style="background:#5A4020"></span>
-            </div>
-            <div class="pc-label">Dourados & Quentes</div>
-            <div class="pc-desc">Ouro, âmbar, mel, caramelo</div>
-          </div>
-          <div class="palette-card" onclick="togglePaletteCard(this)" data-value="vivos">
-            <input type="checkbox" name="paleta" value="vivos">
-            <div class="pc-swatches">
-              <span style="background:#E84040"></span><span style="background:#F09030"></span><span style="background:#E8D020"></span><span style="background:#40A840"></span><span style="background:#3060E0"></span>
-            </div>
-            <div class="pc-label">Cores Vivas</div>
-            <div class="pc-desc">Alegres, saturadas, marcantes</div>
           </div>
         </div>
-      </div>
 
-      <div class="field-group" style="margin-bottom: 32px;">
-        <label>Cores específicas preferidas <span class="optional">(opcional)</span></label>
-        <p class="hint" style="margin-bottom:10px;">Descreva cores ou referencie tons que te agradam — nomes, códigos hex, referências de marcas</p>
-        <input type="text" name="cores_especificas" placeholder="Ex: verde musgo, azul petróleo, off-white quente, rosa antigo...">
-      </div>
-
-      <div class="slider-wrap">
-        <div class="slider-labels">
-          <span>🌙 Atmosfera acolhedora e sombria</span>
-          <span>☀️ Luminoso e aéreo</span>
+        <!-- OS DOIS TEXTOS INTERMEDIÁRIOS (ENTRE A 1ª IMAGEM E AS OUTRAS DUAS) -->
+        <div class="project-description-two-col" style="margin-top: 24px; margin-bottom: 32px;">
+          <p>Inspirado em obras indígenas como ocas, o Pavilhão de Exposições do Carrão tem como principal matéria-prima
+            a madeira. Ela foi escolhida por ser um material que remete à natureza e os povos indígenas do país,
+            proporciona a sensação de aconchego e sofisticação, e além disso, é um material leve, capaz de vencer
+            grandes vãos e que oferece conforto térmico considerável.</p>
+          <p>O sistema estrutural usado é composto por arcos que têm um sistema de articulado-fixo junto ao chão e são
+            engastados em pilares centrais que se abrem em uma forma similar a um "Y" quando em vista, esses pilares
+            também são engastados ao chão. A ideia de abrir esses pilares parte de se assemelharem a árvores, que é a
+            principal matéria-prima usada nesse projeto.</p>
         </div>
-        <input type="range" name="luminosidade" min="0" max="100" value="65" id="luminSlider">
-        <div id="luminLabel" style="text-align:center; margin-top:10px; font-size:0.75rem; letter-spacing:0.08em;  color:var(--muted);">Levemente luminoso</div>
+
+        <!-- 2ª IMAGEM CENTRALIZADA NA PÁGINA COM FUNDO ORIGINAL DA PÁGINA -->
+        <div class="expo-centered-image-wrapper">
+          <div class="gallery-item expo-centered-item">
+            <img src="img/expo 02.png" alt="Projeto Expo Carrão - Detalhe estrutural dos pilares em Y e cobertura"
+              class="gallery-img expo-centered-img" onclick="openLightbox(this.src, this.alt, event)">
+          </div>
+        </div>
+
+        <!-- 3ª IMAGEM À ESQUERDA E TEXTO DAS EDIFICAÇÕES CIRCULARES À DIREITA -->
+        <div class="expo-side-by-side-row">
+          <div class="gallery-item expo-side-img-item">
+            <img src="img/expo 03.png" alt="Projeto Expo Carrão - Implantação e corte arquitetônico do pavilhão"
+              class="gallery-img expo-side-img" onclick="openLightbox(this.src, this.alt, event)">
+          </div>
+          <div class="expo-side-text-col">
+            <p>Dentro do Pavilhão se encontram duas construções circulares que abrigam os banheiros e os escritórios.
+              Essas duas edificações encontram-se em níveis diferentes, para acessar o prédio de banheiros é necessário
+              descer meio nível, enquanto o prédio de escritórios encontra-se no nível zero. A cobertura dessas
+              edificações serve como uma espécie de mirante, com vista panorâmica de tudo que acontece dentro desse
+              local de exposições.</p>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </section>
 
-      <div class="divider"></div>
+  <!-- 3. REFORMA -->
+  <section class="site-section sec-reforma" id="sec-reforma">
+    <div class="inner-page inner-reforma">
+      <div class="colored-header-wrap">
+        <div class="section-decor-strip decor-reforma"></div>
+        <div class="service-header">
+        <div class="service-header-text">
+          <h1>reformas</h1>
+          <p>Quando falo em reforma, parto de um espaço que já existe e que precisa ser transformado para atender novas
+            necessidades. São projetos que vão além da decoração, envolvendo mudanças mais técnicas, como a retirada ou
+            construção de paredes, alteração de portas e janelas e reorganização dos ambientes.</p>
+          <p>Em cada projeto, busco aproveitar ao máximo o espaço existente, encontrando novas possibilidades e soluções
+            que tornem o ambiente mais funcional, confortável e conectado à rotina de quem irá utilizá-lo.</p>
+          <div class="observacoes-inline">
+            <h3>observações:</h3>
+            <p>Essa página ainda está em desenvolvimento!</p>
+            <p>Em breve, trarei aqui meus projetos para visualização.</p>
+          </div>
+        </div>
+        <div class="service-icon-large">
+          <img src="img/trowel_15916045.png" alt="Ícone representando o serviço de reforma e readequação de espaços"
+            class="inner-side-img">
+        </div>
+      </div>
+      </div><!-- /colored-header-wrap --><div class="project-showcase project-showcase-reforma">
+        <div class="project-title-bar">
+          <h2>projeto: o lavabo gigante <span class="tag-status">(não executado)</span></h2>
+        </div>
 
-      <div class="field-group">
-        <label>Palavras que descrevem a atmosfera que deseja</label>
-        <div class="pills">
-          <div class="pill"><input type="checkbox" name="atmosfera" id="at1" value="aconchegante"><label for="at1">Aconchegante</label></div>
-          <div class="pill"><input type="checkbox" name="atmosfera" id="at2" value="sofisticado"><label for="at2">Sofisticado</label></div>
-          <div class="pill"><input type="checkbox" name="atmosfera" id="at3" value="sereno"><label for="at3">Sereno</label></div>
-          <div class="pill"><input type="checkbox" name="atmosfera" id="at4" value="alegre"><label for="at4">Alegre</label></div>
-          <div class="pill"><input type="checkbox" name="atmosfera" id="at5" value="minimalista"><label for="at5">Clean / Minimalista</label></div>
-          <div class="pill"><input type="checkbox" name="atmosfera" id="at6" value="arrojado"><label for="at6">Arrojado</label></div>
-          <div class="pill"><input type="checkbox" name="atmosfera" id="at7" value="organico"><label for="at7">Orgânico / Natural</label></div>
-          <div class="pill"><input type="checkbox" name="atmosfera" id="at8" value="romantico"><label for="at8">Romântico</label></div>
-          <div class="pill"><input type="checkbox" name="atmosfera" id="at9" value="funcional"><label for="at9">Funcional</label></div>
+        <!-- 1ª IMAGEM PANORÂMICA 3D NO TOPO (HERO) -->
+                <!-- 1ª IMAGEM PANORÂMICA NO TOPO (SEAMLESS 3-COLUMN STRIP DOS 3 RENDERS 3D) -->
+        <div class="reforma-renders-strip-block">
+          <div class="reforma-strip-grid">
+            <div class="reforma-strip-item">
+              <img src="img/lavabo 01.1.png" alt="Projeto O Lavabo Gigante - Ângulo 3D 01 da área da bancada" class="reforma-strip-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
+            <div class="reforma-strip-item">
+              <img src="img/lavabo 01.2.png" alt="Projeto O Lavabo Gigante - Ângulo 3D 02 da área do espelho e sanitário" class="reforma-strip-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
+            <div class="reforma-strip-item">
+              <img src="img/lavabo 01.3.png" alt="Projeto O Lavabo Gigante - Ângulo 3D 03 do revestimento amadeirado" class="reforma-strip-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
+          </div>
+        </div>
+
+        <!-- LINHA INFERIOR: PLANTA DE DISPOSIÇÃO SUPERIOR (COM MOLDURA BRANCA) À ESQUERDA + TEXTOS COMPLETOS À DIREIRA -->
+        <div class="reforma-side-by-side-row">
+          <div class="reforma-framed-img-container">
+            <div class="gallery-item reforma-framed-item">
+              <img src="img/lavabo 02.png"
+                alt="Projeto O Lavabo Gigante - Planta de layout vista superior com disposição da bancada e sanitário"
+                class="gallery-img reforma-framed-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
+          </div>
+          <div class="reforma-side-text-col">
+            <p>Essa foi a proposta de reforma para um banheiro bastante grande que iria ser usado como lavabo, as
+              dimensões precisariam ser mantidas e seria necessário ajustar a posição da pia e da bacia sanitária além
+              de atualizar para modelos mais modernos e limpos mas mantendo o orçamento bastante contido.</p>
+            <p>Com a mudança na posição do da bacia, foi sugerida a alteração do piso, . Como se trata de uma área de
+              lavagem, a ideia é colocar um piso de porcelanato imitando madeira, deixando o ambiente mais acolhedor.
+            </p>
+            <p>Pensando no melhor aproveitamento do espaço foi sugerida a implantação de um armário aéreo, que não irá
+              atrapalhar a lavagem do lavabo e ainda servirá para guardar as coisas que já ficam no banheiro ocupando
+              melhor o espaço.</p>
+            <p>Para os revestimentos das paredes, a sugestão é aplicarmos uma tinta epóxi com acabamento acetinado na
+              cor branco gelo sobre os azulejos em três das paredes.</p>
+            <p>Na parede da pia e bacia sanitária, colocaríamos uma Placa Adesiva Flexível Lavável com acabamento
+              imitando granilite, que está bem em alta.</p>
+            <p>E para ousar um pouco, no teto a ideia é pintarmos de uma cor mais chamativa, como verde, terra cota, ou
+              outra cor de preferência</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ── SEÇÃO 6: PRIORIDADES ── -->
-    <div class="form-section" data-section="5">
-      <div class="section-header">
-        <div class="section-number">06</div>
-        <div class="section-title-wrap">
-          <h2>O que mais importa</h2>
-          <p>Ordene as prioridades e indique os ambientes-chave</p>
+  <!-- 4. DECORAÇÃO -->
+  <section class="site-section sec-decoracao" id="sec-decoracao">
+    <div class="inner-page inner-decoracao">
+      <div class="colored-header-wrap">
+        <div class="section-decor-strip decor-decoracao"></div>
+        <div class="service-header">
+        <div class="service-header-text">
+          <h1>decoração</h1>
+          <p>Quando falo em decoração, olho para os detalhes que fazem um espaço ganhar identidade. A escolha dos
+            móveis, materiais, revestimentos, cores e elementos que compõem o ambiente faz parte de um conjunto pensado
+            para criar uma experiência única.</p>
+          <p>Mais do que definir como um espaço será percebido, busco entender como ele será vivido.</p>
+          <p>Nos projetos que apresento abaixo, procuro respeitar as necessidades e preferências de cada cliente, sempre
+            considerando o conforto, a funcionalidade e a harmonia entre todos os elementos do ambiente.</p>
+        </div>
+        <div class="service-icon-large">
+          <img src="img/vase_8659816.png" alt="Ícone representando o serviço de decoração e design de interiores"
+            class="inner-side-img">
         </div>
       </div>
+      </div><!-- /colored-header-wrap -->      <div class="project-showcase project-showcase-decoracao">
+        <div class="project-title-bar project-title-dark">
+          <h2>projeto: illumine concept 2.0 — cajamar SP</h2>
+        </div>
 
-      <div class="field-group" style="margin-bottom: 40px;">
-        <label>Arraste para ordenar suas prioridades (do mais ao menos importante)</label>
-        <div class="priority-list" id="priorityList">
-          <div class="priority-item" draggable="true" data-value="funcionalidade">
-            <div class="priority-num">1</div>
-            <div class="priority-text">Funcionalidade e organização dos espaços</div>
-            <div class="priority-handle">⋮⋮</div>
-          </div>
-          <div class="priority-item" draggable="true" data-value="estetica">
-            <div class="priority-num">2</div>
-            <div class="priority-text">Estética e identidade visual</div>
-            <div class="priority-handle">⋮⋮</div>
-          </div>
-          <div class="priority-item" draggable="true" data-value="sustentabilidade">
-            <div class="priority-num">3</div>
-            <div class="priority-text">Sustentabilidade e materiais naturais</div>
-            <div class="priority-handle">⋮⋮</div>
-          </div>
-          <div class="priority-item" draggable="true" data-value="tecnologia">
-            <div class="priority-num">4</div>
-            <div class="priority-text">Tecnologia e automação residencial</div>
-            <div class="priority-handle">⋮⋮</div>
-          </div>
-          <div class="priority-item" draggable="true" data-value="custo_beneficio">
-            <div class="priority-num">5</div>
-            <div class="priority-text">Custo-benefício e otimização do orçamento</div>
-            <div class="priority-handle">⋮⋮</div>
-          </div>
-          <div class="priority-item" draggable="true" data-value="valorizacao">
-            <div class="priority-num">6</div>
-            <div class="priority-text">Valorização do imóvel</div>
-            <div class="priority-handle">⋮⋮</div>
+        <!-- 1ª IMAGEM HERO (SEAMLESS 3x2 MOSAIC GRID DOS 6 RENDERS 3D) -->
+        <div class="decoracao-renders-mosaic-block">
+          <div class="decoracao-mosaic-grid">
+            <div class="decoracao-mosaic-item">
+              <img src="img/illumine 01.1.png" alt="Projeto Illumine Concept 2.0 - Perspectiva 3D 01 de interiores" class="decoracao-mosaic-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
+            <div class="decoracao-mosaic-item">
+              <img src="img/illumine 01.2.png" alt="Projeto Illumine Concept 2.0 - Perspectiva 3D 02 de interiores" class="decoracao-mosaic-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
+            <div class="decoracao-mosaic-item">
+              <img src="img/illumine 01.3.png" alt="Projeto Illumine Concept 2.0 - Perspectiva 3D 03 de interiores" class="decoracao-mosaic-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
+            <div class="decoracao-mosaic-item">
+              <img src="img/illumine 01.4.png" alt="Projeto Illumine Concept 2.0 - Perspectiva 3D 04 de interiores" class="decoracao-mosaic-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
+            <div class="decoracao-mosaic-item">
+              <img src="img/illumine 01.5.png" alt="Projeto Illumine Concept 2.0 - Perspectiva 3D 05 de interiores" class="decoracao-mosaic-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
+            <div class="decoracao-mosaic-item">
+              <img src="img/illumine 01.6.png" alt="Projeto Illumine Concept 2.0 - Perspectiva 3D 06 de interiores" class="decoracao-mosaic-img" onclick="openLightbox(this.src, this.alt, event)">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="field-group">
-        <label>Ambiente-chave — qual espaço merece atenção especial?</label>
-        <textarea name="ambiente_chave" placeholder="Ex: A cozinha é o coração da nossa casa, passamos muito tempo lá. O escritório também é essencial pois trabalho em casa..."></textarea>
+        <p class="project-subtitle" style="margin-top: 36px; margin-bottom: 16px;">Vídeo do espaço sendo finalizado:</p>
+        <div class="decoracao-video-triptych">
+          <!-- CARD ESQUERDO (ESCURECIDO) -->
+          <div class="video-card video-card-dimmed">
+            <video src="img/illumine_finalizacao.mp4#t=0.5" class="video-media" muted loop playsinline></video>
+            <div class="video-overlay-dark"></div>
+          </div>
+
+          <!-- CARD CENTRAL (EM DESTAQUE - PRINCIPAL) -->
+          <div class="video-card video-card-featured" id="mainFeaturedVideoCard">
+            <video src="img/illumine_finalizacao.mp4" class="video-media main-video" controls autoplay loop muted playsinline></video>
+          </div>
+
+          <!-- CARD DIREITO (ESCURECIDO) -->
+          <div class="video-card video-card-dimmed">
+            <video src="img/illumine_finalizacao.mp4#t=3.0" class="video-media" muted loop playsinline></video>
+            <div class="video-overlay-dark"></div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- ── SEÇÃO 7: INVESTIMENTO ── -->
-    <div class="form-section" data-section="6">
-      <div class="section-header">
-        <div class="section-number">07</div>
-        <div class="section-title-wrap">
-          <h2>Investimento & Considerações</h2>
-          <p>Orçamento previsto, restrições e seu espaço para sonhar</p>
+  <!-- 5. ORÇAMENTOS -->
+  <section class="site-section sec-orcamentos" id="sec-orcamentos">
+    <div class="inner-page">
+      <div class="orcamentos-layout">
+        <div class="orcamentos-text">
+          <h1>orçamentos</h1>
+          <p>Para fazer um orçamento com a gente, basta clicar na imagem ao lado ou no botão abaixo e responder ao
+            formulário que irá aparecer na próxima página!
+          <p>
+          <p>No formulário você vai responder algumas questões simples sobre o serviço que deseja contratar, a área de
+            reforma/construção e o seu estilo, lá você também poderá anexar arquivos e imagens que ajudaram a montarmos
+            um briefing mais acertivo pra você.</p>
+          <p>O prazo para retorno é de 12 dias úteis, vamos entrar em contato e agendar uma breve reunião online!</p>
+          <a href="../briefing-projeto/index.html" class="btn-formulario">
+            <span>Acessar formulário</span>
+            <span class="btn-arrow">→</span>
+          </a>
         </div>
-      </div>
-
-      <div class="field-group" style="margin-bottom: 32px;">
-        <label>Valor disponível para investir no projeto <span class="required">*</span></label>
-          <p class="group-error" id="error-orcamento"></p>
-        <div class="budget-options">
-          <div class="budget-opt"><input type="radio" name="orcamento" id="b1" value="10-30k"><label for="b1"><span class="amount">R$ 10–30 mil</span><span class="desc">Reforma pontual</span></label></div>
-          <div class="budget-opt"><input type="radio" name="orcamento" id="b2" value="30-60k"><label for="b2"><span class="amount">R$ 30–60 mil</span><span class="desc">Reforma parcial</span></label></div>
-          <div class="budget-opt"><input type="radio" name="orcamento" id="b3" value="60-100k"><label for="b3"><span class="amount">R$ 60–100 mil</span><span class="desc">Reforma completa</span></label></div>
-          <div class="budget-opt"><input type="radio" name="orcamento" id="b4" value="100-200k"><label for="b4"><span class="amount">R$ 100–200 mil</span><span class="desc">Projeto completo</span></label></div>
-          <div class="budget-opt"><input type="radio" name="orcamento" id="b5" value="200-400k"><label for="b5"><span class="amount">R$ 200–400 mil</span><span class="desc">Alto padrão</span></label></div>
-          <div class="budget-opt"><input type="radio" name="orcamento" id="b6" value="400k+"><label for="b6"><span class="amount">Acima de R$ 400 mil</span><span class="desc">Luxo / exclusivo</span></label></div>
+        <div class="orcamentos-visual">
+          <a href="../briefing-projeto/index.html" class="orcamentos-img-link"
+            title="Clique para acessar o formulário de briefing">
+            <img src="img/ChatGPT_Image_30_de_jul._de_2026__19_16_24-removebg-preview.png"
+              alt="Ilustração de elaboração de projetos e orçamentos — Clique para abrir o formulário — Clique para abrir o formulário"
+              class="orcamentos-page-img">
+          </a>
         </div>
-      </div>
-
-      <div class="field-row">
-        <div class="field-group">
-          <label>Restrições ou condicionantes <span class="optional">(opcional)</span></label>
-          <textarea name="restricoes" placeholder="Ex: Não pode alterar a estrutura, colunas fixas, área de proteção histórica, vizinhos com restrições de obra..."></textarea>
-        </div>
-        <div class="field-group">
-          <label>Seu espaço de sonho — descreva livremente</label>
-          <textarea name="sonho" placeholder="Se dinheiro e tempo não fossem limitantes, como seria o espaço dos seus sonhos? Compartilhe suas visões, por mais detalhadas ou abstratas que sejam..."></textarea>
-        </div>
-      </div>
-
-      <div class="field-group">
-        <label>Alguma observação adicional? <span class="optional">(opcional)</span></label>
-        <textarea name="observacoes" placeholder="Informações extras, perguntas, detalhes que não encontrou espaço para compartilhar..."></textarea>
       </div>
     </div>
+    <div class="observacoes-section">
+      <h2>observações:</h2>
+      <p>Atualmente, devido à minha disponibilidade de agenda, estou trabalhando exclusivamente com o desenvolvimento de
+        projetos e não realizo o acompanhamento presencial do desenvolvimento das obras.</p>
+      <p>Faço visitas ao local de desenvolvimento e entrego meus projetos com todas as informações necessárias para sua
+        execução. Além disso, permaneço disponível pelo WhatsApp para esclarecer dúvidas durante o desenvolvimento da
+        obra.</p>
+    </div>
+    </div>
+  </section>
 
-    <!-- ── SUBMIT ── -->
-    <div class="submit-section">
-      <p>Ao enviar, você concorda que seus dados sejam usados para elaboração de proposta de projeto</p>
-      <div class="submit-actions" style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 20px;">
-        <button type="submit" class="btn-submit">
-          <span>Enviar briefing</span>
-          <span>→</span>
-        </button>
-        <a href="https://wa.me/5511985107351" target="_blank" rel="noopener" class="btn-contact-inline" aria-label="Fale conosco no WhatsApp">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
-          </svg>
-          <span>Fale conosco via WhatsApp</span>
-        </a>
+  <!-- 6. CONTATO -->
+  <section class="site-section sec-contato" id="sec-contato">
+    <div class="inner-page inner-contato">
+      <div class="contato-layout">
+        <div class="contato-text">
+          <h1>contato</h1>
+          <p class="contato-intro-lead"
+            style="font-size: 1.1rem; font-weight: 400; color: #1a1a1a; margin-bottom: 12px;">Tem um projeto em mente?
+          </p>
+          <p style="font-size: 0.9rem; line-height: 1.75; color: #1a1a1a; font-weight: 300; margin-bottom: 28px;">Entre
+            em contato comigo. Vou adorar conhecer sua ideia e conversar sobre as possibilidades para transformar seu
+            espaço.</p>
+          <div class="contato-item">
+            <a href="https://wa.me/5511985107351" target="_blank" rel="noopener" class="contato-link">
+              <span class="contato-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                    fill="currentColor" />
+                </svg>
+              </span>
+              WhatsApp: (11) 98510-7351
+            </a>
+          </div>
+          <div class="contato-item">
+            <a href="https://www.instagram.com/arquitedora?igsh=OTAwbXNxeGhqb2xn" target="_blank" rel="noopener"
+              class="contato-link">
+              <span class="contato-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                  <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="2" />
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+                  <circle cx="18" cy="6" r="1.2" fill="currentColor" />
+                </svg>
+              </span>
+              Instagram: @arquitedora
+            </a>
+          </div>
+        </div>
+        <div class="contato-icon-area">
+          <img src="img/ChatGPT_Image_30_de_jul._de_2026__17_02_29-removebg-preview.png"
+            alt="Ilustração apresentando os canais oficiais de contato via WhatsApp e Instagram"
+            class="inner-side-img inner-side-img-contato">
+        </div>
       </div>
     </div>
+  </section>
 
-  </form>
-</main>
-
-<!-- Success Overlay -->
-<div class="success-overlay" id="successOverlay">
-  <div class="success-mark"></div>
-  <h2>Briefing recebido!</h2>
-  <p>Obrigado por compartilhar seus sonhos conosco. Em breve entraremos em contato para dar os próximos passos.</p>
-  <div style="font-size:0.72rem; letter-spacing:0.1em;  color:var(--muted); margin-top:16px;">Até breve ✦</div>
-</div>
+  <!-- ══ FOOTER FINAL COM LOGO ══ -->
+  <footer class="site-footer">
+    <div class="footer-logo-wrap">
+      <img src="img/Captura de tela 2026-07-29 143025 (1).png"
+        alt="Logotipo oficial Isa Arquitetura e Design de Interiores no rodapé" class="footer-logo-img">
+    </div>
+    <p class="footer-copy">© Arquitedora — Todos os direitos reservados</p>
+  </footer>
 
   <!-- ══ BOTÃO FLUTUANTE FALE CONOSCO (WHATSAPP) ══ -->
-  <a href="https://wa.me/5511985107351" target="_blank" rel="noopener" class="btn-whatsapp-float" aria-label="Fale conosco no WhatsApp">
+  <a href="https://wa.me/5511985107351" target="_blank" rel="noopener" class="btn-whatsapp-float"
+    aria-label="Fale conosco no WhatsApp">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+        fill="currentColor" />
     </svg>
     <span>Fale conosco</span>
   </a>
 
-  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
 </body>
+
 </html>
